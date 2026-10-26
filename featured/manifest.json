@@ -1,0 +1,18 @@
+[
+  {
+    "label": "The sleep archive",
+    "title": "The city has stopped dreaming.",
+    "author": "Mara Venn",
+    "deck": "Every night, the city records its sleeping citizens. Then, without explanation, the tapes go silent. An essay on memory, consent, and the people who keep the machines running.",
+    "body": "sleep-archive.txt",
+    "image": "sleep-archive.art.txt"
+  },
+  {
+    "label": "Borrowed daylight",
+    "title": "Who owns the morning?",
+    "author": "Ilan Sato",
+    "deck": "An orbital mirror delivers seven unbilled minutes of daylight to a forgotten square. What begins as a calibration error becomes an argument about the things a city owes its people.",
+    "body": "borrowed-daylight.txt",
+    "image": "borrowed-daylight.art.txt"
+  }
+]

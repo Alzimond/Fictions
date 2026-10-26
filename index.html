@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07090b"><title>Independent Fictions Bureau — transmissions from elsewhere</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="readability.css"><link rel="stylesheet" href="editor.css"><link rel="preload" href="fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/ModeNine.ttf" as="font" type="font/ttf" crossorigin><script src="legacy.js" defer></script><script src="codec.js" defer></script><script src="examples.js" defer></script><script src="reading.js" defer></script><script src="image-tools.js" defer></script><script src="registry.js" defer></script><script src="app.js" defer></script><script src="editor.js" defer></script></head>
+<body>
+<header><a class="brand" href="./" aria-label="Independent Fictions Bureau home"><span class="brand-icon" aria-hidden="true"><svg class="bureau-star" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path class="logo-square" fill-rule="evenodd" d="M0 0H100V100H0Z M50 5 56 36 82 18 64 44 95 50 64 56 82 82 56 64 50 95 44 64 18 82 36 56 5 50 36 44 18 18 44 36Z"/><path class="star-inset" transform="translate(50 50) scale(.72) translate(-50 -50)" d="M50 5 56 36 82 18 64 44 95 50 64 56 82 82 56 64 50 95 44 64 18 82 36 56 5 50 36 44 18 18 44 36Z"/></svg></span><span>INDEPENDENT<br>FICTIONS BUREAU</span></a><button id="random" class="primary">NEW TRANSMISSION <span>↗</span></button></header>
+<div class="view-tabs" role="tablist" aria-label="Bureau views"><button id="tab-read" role="tab" aria-selected="true" aria-controls="workspace">01 / READ</button><button id="tab-design" role="tab" aria-selected="false" aria-controls="workspace" tabindex="-1">02 / DESIGN A TRANSMISSION</button></div>
+<nav aria-label="Issue navigation"><!-- ARCHIVE STATUS: change ONLINE to OFFLINE below. This is an editorial label, not a network detector. -->
+<span class="live"><i aria-hidden="true"></i><span>ARCHIVE ONLINE</span></span>
+<!-- Offline alternative: <span class="live"><i aria-hidden="true"></i><span>ARCHIVE OFFLINE</span></span> --><form id="seed-form"><label for="seed">OPEN SEED</label><input id="seed" maxlength="131072" spellcheck="false" autocomplete="off" aria-label="Article seed" required><button aria-label="Open this seed">↵</button></form><span class="edition">VOL. 01 / EXPERIMENTAL EDITION</span></nav><section class="examples" aria-label="Recovered transmissions"><span>RECOVERED TRANSMISSIONS<small>SELECTED FROM THE STATIC</small></span><div id="featured-list"></div></section><p id="load-status" role="status" aria-live="polite"></p>
+<div id="workspace" role="tabpanel" aria-labelledby="tab-read">
+<section id="editor-panel" hidden aria-label="Article designer">
+  <div class="editor-heading"><div><span class="micro">AUTHORING TERMINAL / LOCAL ONLY</span><h2>Design a transmission.</h2><p>Write something worth reconstructing. Your preview and seed update as you work.</p></div><div class="editor-actions"><button id="use-current" type="button">USE CURRENT ARTICLE ↙</button><button id="new-draft" type="button">START NEW +</button></div></div>
+  <form id="editor-form" novalidate>
+    <div class="editor-fields">
+      <label for="edit-title">TITLE <output id="title-count" for="edit-title">0 / 150</output></label>
+      <input id="edit-title" type="text" aria-describedby="title-count" placeholder="A title for this transmission" autocomplete="off">
+      <label for="edit-author">AUTHOR <output id="author-count" for="edit-author">0 / 80</output></label>
+      <input id="edit-author" type="text" aria-describedby="author-count" placeholder="Your name or alias" autocomplete="off">
+      <label for="edit-deck">INTRODUCTION <output id="deck-count" for="edit-deck">0 / 300</output></label>
+      <textarea id="edit-deck" rows="3" aria-describedby="deck-count" placeholder="Optional short introduction beneath the headline"></textarea>
+      <p class="editor-hint">The title is required. Author and introduction are optional.</p>
+    </div>
+    <div class="editor-image">
+      <label for="image-upload">BANNER IMAGE</label>
+      <input id="image-upload" type="file" accept="image/png,image/jpeg,image/webp" aria-describedby="image-help">
+      <p id="image-help" class="editor-hint">PNG, JPG or WebP, up to 12 MB. Cropped locally into 112 × 32 symbols.</p>
+      <div id="crop-area" hidden><canvas id="crop-preview" width="672" height="336" role="img" aria-label="Photograph crop preview"></canvas>
+        <fieldset id="crop-controls"><legend>POSITION & TONE</legend>
+          <label for="crop-x">HORIZONTAL<input id="crop-x" type="range" min="0" max="100" value="50"></label>
+          <label for="crop-y">VERTICAL<input id="crop-y" type="range" min="0" max="100" value="50"></label>
+          <label for="crop-zoom">ZOOM<input id="crop-zoom" type="range" min="1" max="4" step="0.05" value="1"></label>
+          <label for="image-contrast">CONTRAST<input id="image-contrast" type="range" min="0.5" max="2.5" step="0.05" value="1"></label>
+          <label class="check-label"><input id="image-invert" type="checkbox"> INVERT TONES</label>
+          <label class="check-label"><input id="image-dither" type="checkbox" checked> DITHER</label>
+        </fieldset>
+      </div>
+      <pre id="editor-ascii" role="img" aria-label="Live ASCII banner preview"></pre>
+      <button id="clear-image" type="button">CLEAR BANNER ×</button>
+      <p id="image-status" class="editor-hint" role="status"></p>
+    </div>
+    <div class="editor-body">
+      <label for="edit-body">ARTICLE TEXT <output id="body-count" for="edit-body">0 / 4,000 words</output></label>
+      <textarea id="edit-body" rows="13" aria-describedby="body-count body-help" placeholder="Your article begins here…"></textarea>
+      <p id="body-help" class="editor-hint">Up to 4,000 words and 32,000 characters. Separate paragraphs with a blank line. Start a section heading with ## followed by a space.</p>
+    </div>
+  </form>
+  <div class="editor-progress"><p id="editor-status" role="status" aria-live="polite">Ready.</p><a href="#seed-output" id="jump-to-seed">JUMP TO LIVE SEED ↓</a></div>
+  <p class="editor-hint">Your text and converted banner are saved as a draft in this browser when storage is available. Uploaded originals are not stored. Opening a shared link always shows the finished article.</p>
+  <div class="preview-divider"><span>LIVE ARTICLE PREVIEW</span><span>WHAT YOU SEE IS WHAT THE SEED REMEMBERS</span></div>
+</section>
+<main><aside><div class="vertical">SOMEWHERE, THIS HAS ALREADY HAPPENED.</div><span class="cross">+</span></aside><article id="article"><div class="eyebrow"><span id="category"></span><span>RECONSTRUCTED DOCUMENT / <span id="reading"></span> MIN READ</span></div><h1 id="title"></h1><p class="deck" id="deck"></p><div class="byline"><span>WORDS BY <b id="author"></b></span><span id="issue"></span></div><figure><div class="image-label"><span id="figure-label"></span><span>[ RECONSTRUCTED SIGNAL ]</span></div><pre id="art" role="img" aria-label="A banner reconstructed from eight symbols"></pre><figcaption><span id="caption"></span><span>8-GLYPH / MONO</span></figcaption></figure><div class="story-layout"><div class="margin-note"><b id="note"></b><div class="glyph"><svg class="bureau-star" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path class="logo-square" fill-rule="evenodd" d="M0 0H100V100H0Z M50 5 56 36 82 18 64 44 95 50 64 56 82 82 56 64 50 95 44 64 18 82 36 56 5 50 36 44 18 18 44 36Z"/><path class="star-inset" transform="translate(50 50) scale(.72) translate(-50 -50)" d="M50 5 56 36 82 18 64 44 95 50 64 56 82 82 56 64 50 95 44 64 18 82 36 56 5 50 36 44 18 18 44 36Z"/></svg></div><p>SOMEWHERE, THIS HAS ALREADY HAPPENED</p></div><div id="body" class="prose"></div></div><div class="endmark">[ END OF TRANSMISSION ] <span>■</span></div><section class="share" id="seed-output"><div><span class="micro">THIS ISSUE CAN BE RECONSTRUCTED</span><p id="share-seed"></p></div><div class="share-buttons"><button id="copy">COPY LINK ↗</button><button id="copy-seed">COPY SEED +</button><button id="download-seed">SAVE SEED ↓</button></div></section><textarea id="full-seed" class="full-seed" rows="3" readonly hidden aria-label="Complete live seed" spellcheck="false"></textarea><p id="status" role="status" aria-live="polite"></p></article></main></div>
+<footer><span>INDEPENDENT FICTIONS BUREAU © FICTIONAL TIME</span><span>SOMEWHERE, THIS HAS ALREADY HAPPENED</span><button id="palette">PHOSPHOR: GREEN ◉</button></footer>
+<div id="reconstruction" aria-hidden="true" hidden><pre id="static-field"></pre><div><span>RECONSTRUCTING</span><small>SOMEWHERE, THIS HAS ALREADY HAPPENED.</small></div></div></body></html>

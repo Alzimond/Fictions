@@ -1,0 +1,58 @@
+INDEPENDENT FICTIONS BUREAU — GITHUB PAGES
+
+1. Unzip signal-press.zip.
+2. Sign in to GitHub and create a PUBLIC repository, e.g. independent-fictions.
+   Public repositories can use GitHub Pages on GitHub Free.
+3. Choose Add file > Upload files. Upload ALL extracted files and folders,
+   preserving their structure. index.html must be at the repository root,
+   not inside another signal-press folder. Include fonts, featured, tools,
+   custom-seeds.json and .nojekyll. Commit the upload to main.
+4. Open Settings > Pages. Under Build and deployment select Deploy from a branch.
+   Select main and / (root), then Save.
+5. Wait for deployment (several minutes). Pages displays your URL:
+   https://YOUR-USERNAME.github.io/independent-fictions/
+6. Open it. Test NEW TRANSMISSION, search DEMO01, and open DESIGN.
+   Change a title, upload an image and use the seed controls below the preview.
+
+No paid hosting, build command or API key is required. Preserve font licenses.
+Later changes deploy when committed to main.
+
+MANUAL SHORT CODES
+
+The editor no longer offers custom-code registration. To assign a short code,
+copy the finished full seed and add a name/value entry to custom-seeds.json.
+See CUSTOM-SEEDS.txt for exact editing instructions and validation. Never change
+an existing assignment or give one document two names. Upload the edited file
+and commit to publish it. DEMO01 is already included for testing.
+
+PIN A RECOVERED TRANSMISSION
+
+1. In DESIGN, finish the article and SAVE SEED.
+2. Rename the download to my-post.seed.txt and put it in featured/.
+3. Add {"label":"Card title","seedFile":"my-post.seed.txt"} to the array in
+   featured/manifest.json. Put commas between entries; array order is card order.
+4. With Node.js installed, run: node tools/build-featured.cjs
+5. Upload the changed featured/ files, examples.js and example-seeds.txt.
+See featured/README.md for source-based editing, reorder and unpin instructions.
+
+ARCHIVE ONLINE / OFFLINE
+
+In index.html find the ARCHIVE STATUS comment. Change ARCHIVE ONLINE to
+ARCHIVE OFFLINE, or use the commented alternative, keeping only one active label.
+This is display text; it does not disable reading, editing or generation.
+
+LOCAL PREVIEW (optional; needs Node.js)
+
+In a terminal in the extracted folder run: node tools/serve.cjs
+Visit http://127.0.0.1:4173 . Stop with Ctrl+C.
+Do not double-click index.html: registry loading requires a web server.
+
+LIMITS
+
+150-character title; 80-character author; 300-character introduction;
+4,000 words AND 32,000 characters in the body; 112 x 32 symbol banner.
+Some apps truncate long links; save a seed file or publish a short code instead.
+The registry is public and limited to 250 codes.
+
+Official instructions:
+https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site

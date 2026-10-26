@@ -1,0 +1,76 @@
+/* Readability pass: four bright phosphors; local fonts; original layout retained. */
+@font-face{font-family:Inter;src:url('fonts/InterVariable.woff2') format('woff2');font-style:normal;font-weight:100 900;font-display:swap}
+@font-face{font-family:'Mode Nine';src:url('fonts/ModeNine.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+:root{
+  --bg:#07090b;
+  --paper:#fafbff;
+  --muted:#e9edf3;
+  --line:#525b65;
+  --accent:#78ff45;
+  --terminal:'Mode Nine',Consolas,monospace;
+  --headline:Inter,Arial,sans-serif;
+}
+body,button,input{font-family:var(--terminal)}
+body{font-weight:400}
+.brand{font-family:var(--terminal);font-weight:400;font-size:20px;line-height:1.2;letter-spacing:1px}
+.brand-icon,.glyph{font-family:Consolas,monospace}
+h1{font-family:var(--headline);font-weight:900;font-optical-sizing:auto;font-size:clamp(60px,7.8vw,112px);line-height:1.02;letter-spacing:-.055em;text-wrap:balance}
+.deck{font-family:var(--terminal);font-size:22px;line-height:1.6;color:#f4f6fa}
+.prose{font-family:var(--terminal);font-size:20px;line-height:1.75;max-width:68ch}
+.prose p{line-height:1.75;margin-bottom:30px}
+.prose p:first-child:first-letter{font-family:var(--headline);font-weight:900;font-size:72px;padding-top:9px}
+.prose h2{font-family:var(--terminal);font-size:16px;font-weight:400;letter-spacing:.8px;margin-top:46px}
+.prose blockquote{font-family:var(--headline);font-weight:900}
+.primary{font-size:14px;font-weight:400;gap:14px;padding:11px 15px}
+button{font-size:13px}
+nav{font-size:13px;gap:24px;flex-wrap:wrap}
+input{font-size:13px;width:185px}
+.edition{font-size:11px}
+.eyebrow{font-size:12px;letter-spacing:1px;line-height:1.5;gap:16px;flex-wrap:wrap}
+.byline{font-size:13px;line-height:1.5;flex-wrap:wrap}
+.byline b{font-weight:400}
+.image-label,figcaption{font-size:12px;line-height:1.5;letter-spacing:.3px;flex-wrap:wrap;gap:8px}
+.vertical{font-size:12px;letter-spacing:1.5px}
+.margin-note{font-size:14px;line-height:1.7}
+.margin-note b{font-size:14px;font-weight:400;display:block}
+.margin-note p{max-width:165px}
+.examples>span{font-size:12px;letter-spacing:.8px}
+.examples>span small{font-size:11px;letter-spacing:.4px}
+.examples button{font-size:15px;font-weight:400;line-height:1.4;letter-spacing:0}
+.examples button b{font-weight:400}
+.examples button small{font-size:12px;letter-spacing:.2px}
+.micro,.endmark{font-size:12px;letter-spacing:.6px;line-height:1.5}
+.share p{font-size:14px}.share-buttons button{font-size:13px}
+#status,#load-status{font-size:13px;line-height:1.6}
+footer,footer button{font-size:12px;line-height:1.6}
+footer>span:nth-child(2){letter-spacing:.3px}
+#static-field{font-family:var(--terminal);font-size:22px;line-height:28px;letter-spacing:4px;opacity:.3}
+#reconstruction span{font-family:var(--headline);font-weight:900;font-size:clamp(28px,6vw,84px);line-height:1.08;letter-spacing:-.035em;padding:18px;max-width:100%;overflow-wrap:anywhere}
+#reconstruction small{font-family:var(--terminal);font-size:15px;line-height:1.5;letter-spacing:1px;text-align:center;max-width:90vw}
+@media(max-width:800px){
+  .brand{font-size:15px;letter-spacing:.6px}
+  .primary{font-size:12px;gap:9px;padding:10px 12px}
+  h1{font-size:clamp(42px,10vw,80px);line-height:1.04;letter-spacing:-.05em}
+  .deck{font-size:20px;line-height:1.6}
+  .prose{font-size:19px;line-height:1.75}
+  .prose h2{font-size:15px}
+  .eyebrow,.byline{font-size:11px}
+  .image-label,figcaption{font-size:11px}
+  nav{font-size:12px;gap:14px}
+  form{margin-left:0;flex:1;flex-wrap:nowrap}
+  input{width:100px;min-width:0;flex:1}
+  label{white-space:nowrap}
+  .examples>span{font-size:12px}
+  .examples>span small{font-size:10px}
+  .examples button{font-size:14px;min-width:180px}
+  .examples button small{font-size:11px}
+  .share-buttons{justify-content:flex-start}
+  .share-buttons button{font-size:12px}
+  #reconstruction small{font-size:12px;letter-spacing:.4px}
+}
+@media(max-width:420px){
+  header{flex-wrap:wrap}
+  .primary{margin-left:auto}
+  .brand{font-size:14px}
+  .examples>span small{display:block;margin:6px 0 0}
+}

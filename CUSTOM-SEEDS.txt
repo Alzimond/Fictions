@@ -1,0 +1,37 @@
+MANUAL CUSTOM CODES — SITE OWNER ONLY
+
+The editor only creates complete seeds. Short names are maintained by hand in
+custom-seeds.json at the site root. DEMO01 is a working example already included.
+There is no browser-local code registration or automatic repository write.
+
+ADD A CODE
+
+1. Finish an article in DESIGN and wait for SEED READY. Click COPY SEED.
+2. Back up the current custom-seeds.json outside your upload folder.
+3. Open custom-seeds.json in a plain text editor. Inside "aliases", add a comma
+   after the last entry, then a new entry such as:
+       "TEST01": "PASTE THE COMPLETE IFB3. OR IFB2. SEED HERE"
+   Replace that placeholder with the actual seed; keep quotation marks. Seeds
+   must stay on one line. Do not paste a URL. JSON cannot contain comments or
+   a trailing comma. Preserve version: 1 and all existing mappings.
+4. Use UPPERCASE names, 3–24 characters: letters, digits, hyphens or underscores,
+   starting with a letter. IFB and V1- prefixes are reserved. Search ignores case.
+5. From the site folder, with Node.js installed, validate:
+       node tools/check-registry.cjs
+   To also check that no published assignment was changed or removed:
+       node tools/check-registry.cjs path/to/previous-custom-seeds.json
+6. Upload the updated custom-seeds.json to the GitHub repository and commit.
+   After Pages deploys, reload the website and search TEST01.
+
+RULES
+
+Never reuse or overwrite an assigned name. Never give the same document a second
+name. Values must contain full document seeds, not other custom codes. The checker
+rejects duplicate names, duplicate documents, damaged seeds and invalid names.
+The optional previous-file check protects published assignments. A hand-edited
+file cannot enforce history by itself: keep backups and inspect the GitHub diff.
+
+There are at most 250 mappings. They are public. Publishing a short code does NOT
+pin the article under RECOVERED TRANSMISSIONS; see featured/README.md for that.
+Full seeds remain portable and do not need a registry entry. If the registry is
+invalid, short-code loading reports an error; fix it and reload the page.
